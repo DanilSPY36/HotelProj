@@ -36,7 +36,7 @@ function register($login, $email, $pass)
         echo "<h3 class='text-danger text-center'> Длинна пароля должна быть от 8 до 30 символов </h3>";
         return false;
     }
-    $ins = "insert into users(login, email, pass, roleid) values('$login','$email','$pass', 2)";
+    $ins = "insert into users(login, email, pass, roleid) values('$login','$email','".md5($pass)."', 2)";
     $link = connect();
     $link->query($ins);
     $link->close();
