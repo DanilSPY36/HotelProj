@@ -44,19 +44,36 @@ include_once("pages/functions.php");
                                 include_once("pages/comments.php");
                                 break;
                             case 4:
-                                include_once("pages/registration.php");
+                                if (!isset($_SESSION["user"])) {
+                                    include_once("pages/registration.php");
+                                } else {
+                                    include_once("pages/not_found.php");
+                                }
                                 break;
                             case 5:
-                                include_once("pages/login.php");
+                                if (!isset($_SESSION["user"])) {
+                                    include_once("pages/login.php");
+                                } else {
+                                    include_once("pages/not_found.php");
+                                }
                                 break;
                             case 6:
-                                include_once("pages/admin.php");
+                                if (isset($_SESSION["admin"])) {
+                                    include_once("pages/admin.php");
+                                } else {
+                                    include_once("pages/not_found.php");
+                                }
                                 break;
                             case 7:
-                                include_once("pages/private.php");
+                                if (isset($_SESSION["admin"])) {
+                                    include_once("pages/private.php");
+                                } else {
+                                    include_once("pages/not_found.php");
+                                }
                                 break;
                             default:
                                 include_once("pages/not_found.php");
+                        }
                         }
                     }
                     ?>
