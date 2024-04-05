@@ -7,15 +7,15 @@ if(!isset($_SESSION["user"]))
 {?>
 <a class="nav-link text-light" href="index.php?page=4">Registration</a>
 <a class="nav-link text-light" href="index.php?page=5">Login</a>
-<?php}
-if(!isset($_SESSION["user"]))
+<?php
+}
+if(isset($_SESSION["admin"]))
 {?>
 <a class="nav-link text-light" href="index.php?page=6">Admin</a>
 <a class="nav-link text-light" href="index.php?page=7">Private</a>
-<?php}?>
+<?php
+}
 
-
-<?
 if (isset($_SESSION["user"])) {
     echo "<form class='d-flex ms-auto' action='index.php";
     if (isset($_GET["page"])) echo "?page=" . $_GET["page"];

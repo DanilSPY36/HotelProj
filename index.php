@@ -74,7 +74,6 @@ include_once("pages/functions.php");
                             default:
                                 include_once("pages/not_found.php");
                         }
-                        }
                     }
                     ?>
                 </div>
